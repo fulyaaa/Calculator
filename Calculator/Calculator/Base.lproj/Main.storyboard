@@ -302,7 +302,7 @@
                                     <constraint firstItem="Uba-AV-2FW" firstAttribute="width" secondItem="LeJ-qI-DeJ" secondAttribute="width" id="5QP-Ko-9EL"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="961" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-SE-x2R">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-SE-x2R">
                                 <rect key="frame" x="229" y="236.00000000000003" width="133" height="94.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="79"/>
                                 <nil key="textColor"/>
