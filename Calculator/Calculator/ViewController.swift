@@ -55,7 +55,12 @@ class ViewController: UIViewController {
             result = "\(rawResult)"
         case .multiply:
             rawResult = firstNumber * secondNumber
-            result = "\(rawResult)"
+            if String(rawResult).count > 3 {
+                result = String(format: "%.3g", rawResult)
+            } else {
+                result = "\(rawResult)"
+            }
+           
         case .divide:
             rawResult = firstNumber / secondNumber
             if String(rawResult).count > 3 {
