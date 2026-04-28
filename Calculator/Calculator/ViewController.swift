@@ -44,19 +44,29 @@ class ViewController: UIViewController {
         rightValue = runningNumber
         let firstNumber = Double(leftValue) ?? 0
         let secondNumber = Double(rightValue) ?? 0
+        var rawResult: Double = 0
         
         switch currentOperation {
         case .add:
-            result = "\(firstNumber + secondNumber)"
+            rawResult = firstNumber + secondNumber
+            result = "\(rawResult)"
         case .subtract:
-            result = "\(firstNumber - secondNumber)"
+            rawResult = firstNumber - secondNumber
+            result = "\(rawResult)"
         case .multiply:
-            result = "\(firstNumber * secondNumber)"
+            rawResult = firstNumber * secondNumber
+            result = "\(rawResult)"
         case .divide:
-            result = "\(firstNumber / secondNumber)"
+            rawResult = firstNumber / secondNumber
+            if String(rawResult).count > 3 {
+                result = String(format: "%.3g", rawResult)
+            } else {
+                result = "\(rawResult)"
+            }
         case .none:
             break
         }
+        
         runningNumber = result //sonucu saklıyorum
         //resultLabel.text = result
         updateDisplay()
