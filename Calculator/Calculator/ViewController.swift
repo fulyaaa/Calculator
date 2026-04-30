@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     enum Operation: Int {
         case add = 10
-        case subtract = 11
+        case subtract = 11 //diğer sayıları silerek dene
         case multiply = 12
         case divide = 13
         case none = 0 //bir islem yapılmadıysa
@@ -35,6 +35,8 @@ class ViewController: UIViewController {
         currentOperation = Operation(rawValue: sender.tag) ?? .none
         leftValue = runningNumber //ekrana yazılmıs sayıyı soldaki değer olarak kaydet
         runningNumber = ""
+        //ekranda görünmesi için leftvalue + operationtype ?? codereviewde sor
+        
         
         //updateDisplay()
         //resultLabel.text = "" //operation verdiğimde text temizlensin
@@ -46,6 +48,9 @@ class ViewController: UIViewController {
         let secondNumber = Double(rightValue) ?? 0
         var rawResult: Double = 0
         
+        //code reviewda dizi mantıgına bak
+        //switch case yapısı ekle, buton birinci veya
+        //ayrı fonksiyonda tanımlamayı dene
         switch currentOperation {
         case .add:
             rawResult = firstNumber + secondNumber
