@@ -11,13 +11,13 @@ class ViewController: UIViewController {
     
     enum Operation: Int {
         case add = 10
-        case subtract = 11 //diğer sayıları silerek dene
-        case multiply = 12
-        case divide = 13
-        case none = 0 //bir islem yapılmadıysa
+        case subtract
+        case multiply
+        case divide
+        case none = 0
     }
     
-    var runningNumber: String = "" //ekranda o an yazan sayı
+    var runningNumber: String = ""
     var leftValue: String = ""
     var rightValue: String = ""
     var result: String = ""
@@ -32,14 +32,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func actionPressed(_ sender: UIButton) {
-        currentOperation = Operation(rawValue: sender.tag) ?? .none
-        leftValue = runningNumber //ekrana yazılmıs sayıyı soldaki değer olarak kaydet
+        if runningNumber == "" {
+            return
+        }
+        leftValue = runningNumber
         runningNumber = ""
-        //ekranda görünmesi için leftvalue + operationtype ?? codereviewde sor
+        currentOperation = Operation(rawValue: sender.tag) ?? .none
         
-        
+        //currentOperation = Operation(rawValue: sender.tag) ?? .none
+        //leftValue = runningNumber
+        //runningNumber = ""
         //updateDisplay()
-        //resultLabel.text = "" //operation verdiğimde text temizlensin
+        //resultLabel.text = ""
     }
     
     @IBAction func equalPressed(_ sender: UIButton) {
@@ -48,9 +52,7 @@ class ViewController: UIViewController {
         let secondNumber = Double(rightValue) ?? 0
         var rawResult: Double = 0
         
-        //code reviewda dizi mantıgına bak
-        //switch case yapısı ekle, buton birinci veya
-        //ayrı fonksiyonda tanımlamayı dene
+        //code reviewda dizi mantıgına bakılacak
         switch currentOperation {
         case .add:
             rawResult = firstNumber + secondNumber
@@ -77,7 +79,7 @@ class ViewController: UIViewController {
             break
         }
         
-        runningNumber = result //sonucu saklıyorum
+        runningNumber = result 
         //resultLabel.text = result
         updateDisplay()
         
@@ -89,7 +91,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearPressed(_ sender: UIButton) {
-        //arka plandaki verileri sıfırlar
         runningNumber  = ""
         leftValue = ""
         rightValue = ""
@@ -97,12 +98,12 @@ class ViewController: UIViewController {
         currentOperation = .none
         
         updateDisplay()
-        //resultLabel.text = "0" // kullanıcıya her seyın sılındıgını gosterır. bir görsel nesne oldugu ıcın.text diyoruz fakat yukarıdakiler gorsel nesne değil string direk "" denir
+        //resultLabel.text = "0"
     }
     
     @IBAction func changeSignPressed(_ sender: UIButton) {
         let signedNumber = (Double(runningNumber) ??  0) * -1
-        runningNumber = "\(signedNumber)" // hafızaya kaydet - Stringe cevirmemize gerek kalmadı \ aynı işi yapar
+        runningNumber = "\(signedNumber)"
         //resultLabel.text = runningNumber
         updateDisplay()
     }
@@ -118,7 +119,6 @@ class ViewController: UIViewController {
         if runningNumber.hasSuffix(".0") {
             runningNumber = String(runningNumber.dropLast(2))
         }
-        
         let formattedText = runningNumber.replacingOccurrences(of: ".", with: ",")
         resultLabel.text = formattedText.isEmpty ? "0" : formattedText
     }
