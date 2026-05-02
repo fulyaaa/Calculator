@@ -79,7 +79,7 @@ class ViewController: UIViewController {
             break
         }
         
-        runningNumber = result 
+        runningNumber = result
         //resultLabel.text = result
         updateDisplay()
         
