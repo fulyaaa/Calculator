@@ -8,26 +8,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    //homeviewcontroller yap
     
     enum Operation: Int {
         case add = 10
         case subtract
         case multiply
         case divide
-        case none = 0
+        case modulus = 14
     }
     
     var runningNumber: String = ""
     var leftValue: String = ""
     var rightValue: String = ""
     var result: String = ""
-    var currentOperation: Operation = .none
+    var currentOperation: Operation? = nil
     
     @IBOutlet weak var resultLabel: UILabel!
     
     @IBAction func numberPressed(_ sender: UIButton) {
         runningNumber += "\(sender.tag)"
-        //resultLabel.text = runningNumber
         updateDisplay()
     }
     
@@ -37,13 +37,8 @@ class ViewController: UIViewController {
         }
         leftValue = runningNumber
         runningNumber = ""
-        currentOperation = Operation(rawValue: sender.tag) ?? .none
+        currentOperation = Operation(rawValue: sender.tag)
         
-        //currentOperation = Operation(rawValue: sender.tag) ?? .none
-        //leftValue = runningNumber
-        //runningNumber = ""
-        //updateDisplay()
-        //resultLabel.text = ""
     }
     
     @IBAction func equalPressed(_ sender: UIButton) {
@@ -60,33 +55,45 @@ class ViewController: UIViewController {
         case .subtract:
             rawResult = firstNumber - secondNumber
             result = "\(rawResult)"
+        case .modulus:
+            if secondNumber != 0 {
+                rawResult = firstNumber.truncatingRemainder(dividingBy: secondNumber)
+                    result = "\(rawResult)"
+                //???
+            }
         case .multiply:
             rawResult = firstNumber * secondNumber
-            if String(rawResult).count > 3 {
-                result = String(format: "%.3g", rawResult)
+            if String(rawResult).count > 8 {
+                result = String(format: "%2f", rawResult)
             } else {
                 result = "\(rawResult)"
             }
-           
         case .divide:
-            rawResult = firstNumber / secondNumber
-            if String(rawResult).count > 3 {
-                result = String(format: "%.3g", rawResult)
+            if secondNumber == 0 {
+                result = "undefined"
             } else {
-                result = "\(rawResult)"
+                rawResult = firstNumber / secondNumber
+                if rawResult.truncatingRemainder(dividingBy: 1) == 0 {
+                    result = "\(Int(rawResult))"
+                } else {
+                    result = String(format: "%.2f", rawResult)
+                    
+                    while result.hasSuffix("0"){
+                        result.removeLast()
+                    }
+                    if result.hasSuffix("."){
+                        result.removeLast()
+                    }
+                }
             }
-        case .none:
+        case nil:
             break
         }
         
         runningNumber = result
-        //resultLabel.text = result
         updateDisplay()
         
-      
         updateDisplay()
-        //resultLabel.text = result
-        //leftvalue = result
         
     }
     
@@ -95,25 +102,22 @@ class ViewController: UIViewController {
         leftValue = ""
         rightValue = ""
         result = ""
-        currentOperation = .none
+        currentOperation = nil
         
         updateDisplay()
-        //resultLabel.text = "0"
     }
     
     @IBAction func changeSignPressed(_ sender: UIButton) {
         let signedNumber = (Double(runningNumber) ??  0) * -1
         runningNumber = "\(signedNumber)"
-        //resultLabel.text = runningNumber
         updateDisplay()
     }
     
-    @IBAction func percentPressed(_ sender: UIButton) {
-        let signedNumber = (Double(runningNumber) ??  0) / 100
-        runningNumber = "\(signedNumber)"
-        //resultLabel.text = runningNumber
-        updateDisplay()
-    }
+   // @IBAction func percentPressed(_ sender: UIButton) {
+     //   let signedNumber = (Double(runningNumber) ??  0) / 100
+       // runningNumber = "\(signedNumber)"
+        //updateDisplay()
+  //  }
     
     func updateDisplay() {
         if runningNumber.hasSuffix(".0") {
@@ -127,15 +131,7 @@ class ViewController: UIViewController {
         if !runningNumber.contains(".") {
             runningNumber = runningNumber.isEmpty ? "0." : runningNumber + "."
             updateDisplay()
-            //if runningNumber.isEmpty {
-            //runningNumber += "0."
-            //} else {
-            //    runningNumber += "."
-            //}
-            //resultLabel.text = runningNumber.replacingOccurrences(of: ".", with: ",")
         }
-        
     }
-    
 }
 
