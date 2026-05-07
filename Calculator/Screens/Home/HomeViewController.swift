@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     //homeviewcontroller yap
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     private var result: String = ""
     private var currentOperation: Operation? = nil
     
-    
     @IBAction func numberPressed(_ sender: UIButton) {
         currentInput += "\(sender.tag)"
         updateDisplay()
@@ -41,11 +40,13 @@ class ViewController: UIViewController {
     
     @IBAction func equalPressed(_ sender: UIButton) {
         secondValue = currentInput
-        let firstNumber = Double(firstValue) ?? 0
-        let secondNumber = Double(secondValue) ?? 0
+        let standardizedFirstValue = firstValue.replacingOccurrences(of: ",", with: ".")
+        let standardizedSecondValue = secondValue.replacingOccurrences(of: ",", with: ".")
+        
+        let firstNumber = Double(standardizedFirstValue) ?? 0
+        let secondNumber = Double(standardizedSecondValue) ?? 0
         var rawResult: Double = 0
         
-        //code reviewda dizi mantıgına bakılacak
         switch currentOperation {
         case .add:
             rawResult = firstNumber + secondNumber
@@ -60,14 +61,18 @@ class ViewController: UIViewController {
             }
         case .multiply:
             rawResult = firstNumber * secondNumber
-            result = String(format: "%2f", rawResult)
+            if rawResult.truncatingRemainder(dividingBy: 1) == 0 {
+                result = "\(Int(rawResult))"
+            } else {
+                   result = String(format: "%.2f", rawResult)
+               }
         case .divide:
             if secondNumber == 0 {
                 result = "undefined"
             } else {
                 rawResult = firstNumber / secondNumber
                 result = formatter.string(from: NSNumber(floatLiteral: rawResult)) ?? "\(rawResult)"
-            }
+                }
         case nil:
             break
         }
@@ -87,18 +92,30 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dotPressed(_ sender: UIButton) {
-        guard !currentInput.contains(".") else { return }
+        if currentInput.contains(".") { return }
         currentInput = currentInput.isEmpty ? "0." : currentInput + "."
         updateDisplay()
     }
     
     private func updateDisplay() {
-        if currentInput.hasSuffix(".0") {
-            currentInput = String(currentInput.dropLast(2))
+        if currentInput.isEmpty {
+              resultLabel.text = "0"
+              return
+          }
+        if currentInput.hasSuffix(".") {
+            let formattedPart = formatString(String(currentInput.dropLast()))
+              resultLabel.text = formattedPart + ","
+          } else {
+              resultLabel.text = formatString(currentInput)
+          }
+      }
+    
+    private func formatString(_ input: String) -> String {
+        if let number = Double(input) {
+            return formatter.string(from: NSNumber(value: number)) ?? input
         }
-        let formattedText = currentInput.replacingOccurrences(of: ".", with: ",")
-        resultLabel.text = formattedText.isEmpty ? "0" : formattedText
-    }
+        return input
+      }
     
     private func clear() {
         currentInput  = ""
