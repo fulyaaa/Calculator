@@ -17,6 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-SE-x2R">
+                                <rect key="frame" x="16" y="175" width="361" height="107.66666666666669"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="4wd-ER-WQr">
                                 <rect key="frame" x="16" y="298.66666666666674" width="361" height="469.33333333333326"/>
                                 <subviews>
@@ -214,9 +220,6 @@
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fp-cq-VlI">
                                                 <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="84"/>
                                                 <color key="backgroundColor" red="0.21176470589999999" green="0.14901960780000001" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="5fp-cq-VlI" secondAttribute="height" multiplier="1:1" id="lnP-q7-4Ab"/>
-                                                </constraints>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="1">
@@ -255,7 +258,7 @@
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeJ-qI-DeJ">
                                                 <rect key="frame" x="276.66666666666669" y="0.0" width="84.333333333333314" height="84"/>
-                                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="+">
@@ -320,19 +323,13 @@
                                     <constraint firstItem="Uba-AV-2FW" firstAttribute="width" secondItem="LeJ-qI-DeJ" secondAttribute="width" id="5QP-Ko-9EL"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-SE-x2R">
-                                <rect key="frame" x="16" y="235.99999999999997" width="361" height="46.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="120"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4wd-ER-WQr" secondAttribute="trailing" constant="16" id="3cC-aC-tmy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4wd-ER-WQr" secondAttribute="bottom" constant="16" id="6Yd-xt-tH8"/>
-                            <constraint firstItem="cCp-SE-x2R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="118" id="ABY-i3-weZ"/>
+                            <constraint firstItem="cCp-SE-x2R" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ABY-i3-weZ"/>
                             <constraint firstItem="4wd-ER-WQr" firstAttribute="top" secondItem="cCp-SE-x2R" secondAttribute="bottom" constant="16" id="GoV-Jx-6GL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCp-SE-x2R" secondAttribute="trailing" constant="16" id="jmX-Ie-BP1"/>
                             <constraint firstItem="4wd-ER-WQr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qne-vX-faO"/>
@@ -357,9 +354,6 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

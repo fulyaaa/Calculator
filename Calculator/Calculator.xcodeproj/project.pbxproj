@@ -21,6 +21,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		280AD1DC2FABEDEB00A21F7E /* Models */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2891570C2FA63FE800905023 /* App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = App;
@@ -55,6 +60,7 @@
 		280F172F2F98C9C200DF8628 = {
 			isa = PBXGroup;
 			children = (
+				280AD1DC2FABEDEB00A21F7E /* Models */,
 				280F17392F98C9C200DF8628 /* Products */,
 				2891570C2FA63FE800905023 /* App */,
 				289157152FA63FEC00905023 /* Resources */,
@@ -86,6 +92,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				280AD1DC2FABEDEB00A21F7E /* Models */,
 				2891570C2FA63FE800905023 /* App */,
 				289157152FA63FEC00905023 /* Resources */,
 				2891571C2FA63FF000905023 /* Screens */,
