@@ -1,7 +1,8 @@
 # Calculator 📱
 
 A functional calculator project developed while learning Swift. It focuses on core UIKit elements, basic state management, and simple arithmetic logic.
-  <img src=https://github.com/user-attachments/assets/ebf1b8cd-2039-45ab-8814-9bb56c6cf39c
+ 
+<img src=https://github.com/user-attachments/assets/ebf1b8cd-2039-45ab-8814-9bb56c6cf39c
  width="250" alt="Calculator Demo">
 
 ## ✨ Features
