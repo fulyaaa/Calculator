@@ -6,7 +6,6 @@ A functional calculator project developed while learning Swift. It focuses on co
 - **Basic Operations:** Addition, subtraction, multiplication, and division.
 - **Advanced Logic:** Includes modulus (%) and sign change (+/-) functions.
 - **Smart Formatting:** Uses `NumberFormatter` for localized decimal separators (comma/point) and digit grouping.
-- **Safe Math:** Handles division by zero and prevents multiple decimal points.
 
 ## 🛠 Technologies
 - **Language:** Swift 5.0+
