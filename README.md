@@ -1,6 +1,6 @@
 # Calculator 📱
 
-A sleek and functional calculator application built with **Swift** and **UIKit**. This project focuses on clean code practices, UI precision, and robust mathematical logic.
+A functional calculator project developed while learning Swift. It focuses on core UIKit elements, basic state management, and simple arithmetic logic.
 
 ## ✨ Features
 - **Basic Operations:** Addition, subtraction, multiplication, and division.
