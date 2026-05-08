@@ -31,10 +31,5 @@ private let formatter: NumberFormatter = {
 }()
 ```
 
-## 🚀 How to Run
-1. Clone the repository: `git clone https://github.com`
-2. Open `Calculator.xcodeproj` in **Xcode**.
-3. Run the project on an iPhone simulator.
-
 ---
-Created by [Your Name]
+Created by [Fulya Akan]
