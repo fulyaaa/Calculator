@@ -14,10 +14,8 @@ A functional calculator project developed while learning Swift. It focuses on co
 
 ## 📸 Demo
 
-<p align="center">
   <img src=https://github.com/user-attachments/assets/ebf1b8cd-2039-45ab-8814-9bb56c6cf39c
- width="300" alt="Calculator Demo">
-</p>
+ width="250" alt="Calculator Demo">
 
 ## 💻 Code Highlight: Formatted Display
 The app uses a custom `NumberFormatter` to ensure a professional look for decimal numbers:
