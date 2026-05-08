@@ -12,11 +12,12 @@ A functional calculator project developed while learning Swift. It focuses on co
 - **Framework:** UIKit
 - **Design Pattern:** MVC
 
-## 📸 Preview
+## 📸 Demo
 
-| Main Screen | Operations |
-| :---: | :---: |
-| ![Screen1](https://your-image-link-here.com) | ![Screen2](https://your-image-link-here.com) |
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ebf1b8cd-2039-45ab-8814-9bb56c6cf39c
+" width="300" alt="Calculator Demo">
+</p>
 
 ## 💻 Code Highlight: Formatted Display
 The app uses a custom `NumberFormatter` to ensure a professional look for decimal numbers:
@@ -32,4 +33,4 @@ private let formatter: NumberFormatter = {
 ```
 
 ---
-Created by [Fulya Akan]
+
