@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    //homeviewcontroller yap
     
     @IBOutlet weak var resultLabel: UILabel!
     
