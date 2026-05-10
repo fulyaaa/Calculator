@@ -11,19 +11,19 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var resultLabel: UILabel!
     
-    let formatter: NumberFormatter = {
+    private var currentInput: String = ""
+    private var firstValue: String = ""
+    private var secondValue: String = ""
+    private var result: String = ""
+    private var currentOperation: Operation? = nil
+    
+    private let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
         formatter.numberStyle = .decimal
         return formatter
     }()
-    
-    private var currentInput: String = ""
-    private var firstValue: String = ""
-    private var secondValue: String = ""
-    private var result: String = ""
-    private var currentOperation: Operation? = nil
     
     @IBAction func numberPressed(_ sender: UIButton) {
         currentInput += "\(sender.tag)"
@@ -60,18 +60,14 @@ class HomeViewController: UIViewController {
             }
         case .multiply:
             rawResult = firstNumber * secondNumber
-            if rawResult.truncatingRemainder(dividingBy: 1) == 0 {
-                result = "\(Int(rawResult))"
-            } else {
-                   result = String(format: "%.2f", rawResult)
-               }
+            result = formatter.string(from: NSNumber(floatLiteral: rawResult)) ?? "\(rawResult)"
         case .divide:
             if secondNumber == 0 {
                 result = "undefined"
             } else {
                 rawResult = firstNumber / secondNumber
                 result = formatter.string(from: NSNumber(floatLiteral: rawResult)) ?? "\(rawResult)"
-                }
+            }
         case nil:
             break
         }
@@ -95,28 +91,33 @@ class HomeViewController: UIViewController {
         currentInput = currentInput.isEmpty ? "0." : currentInput + "."
         updateDisplay()
     }
+}
+
+// MARK: Privates
+
+private extension HomeViewController {
     
-    private func updateDisplay() {
+    func updateDisplay() {
         if currentInput.isEmpty {
-              resultLabel.text = "0"
-              return
-          }
+            resultLabel.text = "0"
+            return
+        }
         if currentInput.hasSuffix(".") {
             let formattedPart = formatString(String(currentInput.dropLast()))
-              resultLabel.text = formattedPart + ","
-          } else {
-              resultLabel.text = formatString(currentInput)
-          }
-      }
+            resultLabel.text = formattedPart + ","
+        } else {
+            resultLabel.text = formatString(currentInput)
+        }
+    }
     
-    private func formatString(_ input: String) -> String {
+    func formatString(_ input: String) -> String {
         if let number = Double(input) {
             return formatter.string(from: NSNumber(value: number)) ?? input
         }
         return input
-      }
+    }
     
-    private func clear() {
+    func clear() {
         currentInput  = ""
         firstValue = ""
         secondValue = ""
@@ -125,6 +126,4 @@ class HomeViewController: UIViewController {
         
         updateDisplay()
     }
-    
 }
-
