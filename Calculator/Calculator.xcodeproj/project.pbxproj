@@ -21,9 +21,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		280AD1DC2FABEDEB00A21F7E /* Enum */ = {
+		280AD2562FB0685A00A21F7E /* Utils */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Enum;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		2891570C2FA63FE800905023 /* App */ = {
@@ -57,18 +57,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		280AD23C2FB066FE00A21F7E /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				280AD1DC2FABEDEB00A21F7E /* Enum */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		280F172F2F98C9C200DF8628 = {
 			isa = PBXGroup;
 			children = (
-				280AD23C2FB066FE00A21F7E /* Utils */,
+				280AD2562FB0685A00A21F7E /* Utils */,
 				280F17392F98C9C200DF8628 /* Products */,
 				2891570C2FA63FE800905023 /* App */,
 				289157152FA63FEC00905023 /* Resources */,
@@ -100,7 +92,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				280AD1DC2FABEDEB00A21F7E /* Enum */,
+				280AD2562FB0685A00A21F7E /* Utils */,
 				2891570C2FA63FE800905023 /* App */,
 				289157152FA63FEC00905023 /* Resources */,
 				2891571C2FA63FF000905023 /* Screens */,

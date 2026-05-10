@@ -1,8 +1,8 @@
 //
-//  CalculatorOperation.swift
+//  Operations.swift
 //  Calculator
 //
-//  Created by fulya akan on 7.05.2026.
+//  Created by fulya akan on 10.05.2026.
 //
 enum Operation: Int {
     case add = 10
